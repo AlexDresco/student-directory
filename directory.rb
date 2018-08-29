@@ -18,8 +18,10 @@ def print_header
 end
 
 def print_if(names)
+  puts "What letter should it start with?"
+  letter = gets.chomp
   names.each do |student|
-      if student[:name][0] == "a"
+      if student[:name][0] == letter
         puts "#{student[:name]}"
       end
   end
