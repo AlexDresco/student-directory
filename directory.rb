@@ -18,10 +18,10 @@ def print_header
 end
 
 def print_if(names)
-  names.each do |student|
-      if student[:name].length <= 12
-        puts "#{student[:name]}"
-      end
+  i = 0
+  while i < names.length
+    puts names[i][:name]
+    i += 1
   end
 end
 
