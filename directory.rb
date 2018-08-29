@@ -17,10 +17,12 @@ def print_header
   puts "-------------"
 end
 
-def print(names)
-  names.each_with_index do |item, index|
-  puts "#{index+1}. #{item[:name]}"
-end
+def print_if(names)
+  names.each do |student|
+      if student[:name][0] == "a"
+        puts "#{student[:name]}"
+      end
+  end
 end
 
 def print_footer(names)
@@ -30,5 +32,5 @@ end
 #call the methods to make things happen
 students = input_students
 print_header
-print(students)
+print_if(students)
 print_footer(students)
