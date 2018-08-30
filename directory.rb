@@ -39,7 +39,7 @@ end
 def print(names)
   i = 0
   while i < names.length
-    puts "#{names[i][:name]} from the #{names[i][:cohort]} cohort likes to #{names[i][:hobby]}, comes from #{names[i][:country]} and mesures #{names[i][:height]}"
+    puts "#{names[i][:name]} from the #{names[i][:cohort]} cohort likes to #{names[i][:hobby]}, comes from #{names[i][:country]} and mesures #{names[i][:height]}".center(150)
     i += 1
   end
 end
