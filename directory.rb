@@ -1,32 +1,27 @@
 def input_students
-  puts "Please enter the names, hobbies, country of birth and height of the students"
+  puts "Please enter your name and cohort"
   puts "To finish, just hit return twice when prompted for name"
 
   students = []
   puts "Name:"
   name = gets.chomp
-  puts "Favourite hobby:"
-  hobby = gets.chomp
-  puts "Country:"
-  country = gets.chomp
-  puts "Height"
-  height = gets.chomp
+  puts "Cohort:"
+  cohort = gets.chomp
 
   while true do
-    students << {name: name, cohort: :november, hobby: hobby,
-    country: country, height: height}
+    students << {name: name, cohort: cohort}
     puts "Now we have #{students.count} students"
     puts "Name:"
     name = gets.chomp
     if name.empty?
       break
     end
-    puts "Favourite hobby:"
-    hobby = gets.chomp
-    puts "Country:"
-    country = gets.chomp
-    puts "Height"
-    height = gets.chomp
+    puts "Cohort:"
+    if cohort.empty?
+      cohort = "N/A"
+    else
+      cohort = gets.chomp.to_sym
+    end
   end
   students
 end
@@ -39,7 +34,7 @@ end
 def print(names)
   i = 0
   while i < names.length
-    puts "#{names[i][:name]} from the #{names[i][:cohort]} cohort likes to #{names[i][:hobby]}, comes from #{names[i][:country]} and mesures #{names[i][:height]}".center(150)
+    puts "#{names[i][:name]} from the #{names[i][:cohort]} cohort".center(100)
     i += 1
   end
 end
