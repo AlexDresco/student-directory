@@ -16,7 +16,7 @@ def input_students
       puts "Now we have #{students.count} students"
     end
     puts "Name:"
-    name = gets.chomp
+    name = gets.delete "\n"
     if name.empty?
       break
     end
