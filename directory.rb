@@ -10,7 +10,11 @@ def input_students
 
   while true do
     students << {name: name, cohort: cohort}
-    puts "Now we have #{students.count} students"
+    if students.count == 1
+      puts "Now we have #{students.count} student"
+    else
+      puts "Now we have #{students.count} students"
+    end
     puts "Name:"
     name = gets.chomp
     if name.empty?
@@ -36,7 +40,11 @@ def print(names)
 end
 
 def print_footer(names)
+  if names.count == 1
+    puts "Overall, we have #{names.count} great student"
+  else
   puts "Overall, we have #{names.count} great students"
+  end
 end
 
 #call the methods to make things happen
