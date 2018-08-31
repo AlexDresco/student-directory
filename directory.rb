@@ -20,7 +20,7 @@ def input_students
     if cohort.empty?
       cohort = "N/A"
     else
-      cohort = gets.chomp.to_sym
+      cohort = gets.chomp
     end
   end
   students
@@ -32,11 +32,7 @@ def print_header
 end
 
 def print(names)
-  i = 0
-  while i < names.length
-    puts "#{names[i][:name]} from the #{names[i][:cohort]} cohort".center(100)
-    i += 1
-  end
+  puts names.sort_by { |hsh| hsh[:cohort] }
 end
 
 def print_footer(names)
