@@ -38,10 +38,23 @@ def input_students
   name = STDIN.gets.chomp
 
   while !name.empty? do
-    @students << {name: name, cohort: :november}
+    add_to_list(name, :november)
     puts "Now we have #{@students.count} students"
     name = STDIN.gets.chomp
   end
+end
+
+def add_to_list(name, cohort)
+  @students << {name: name, cohort: cohort}
+end
+
+def load_students(filename = "students.csv")
+  file = File.open(filename, "r")
+  file.readlines.each do |line|
+    name, cohort = line.chomp.split(',')
+    add_to_list(name, cohort)
+  end
+  file.close
 end
 
 def show_students
@@ -75,14 +88,6 @@ def save_students
   file.close
 end
 
-def load_students(filename = "students.csv")
-  file = File.open(filename, "r")
-  file.readlines.each do |line|
-    name, cohort = line.chomp.split(',')
-    @students << {name: name, cohort: cohort}
-  end
-  file.close
-end
 
 def try_load_students
   filename = ARGV.first
