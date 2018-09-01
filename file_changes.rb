@@ -34,6 +34,8 @@ def print_footer(names)
   end
 end
 
+
+
 students = input_students
 print_header
 print_names(students)
