@@ -84,7 +84,12 @@ def print_footer
 end
 
 def save_students
-  file = File.open("students.csv","w")
+  puts "Enter file name, if empty students.csv for default"
+  file_name = STDIN.gets.chomp
+  if file_name.empty?
+    file_name = "students.csv"
+  end
+  file = File.open(file_name,"w")
   @students.each do |student|
     student_data = [student[:name], student[:cohort]]
     csv_line = student_data.join(",")
@@ -98,7 +103,7 @@ def try_load_students
   filename = ARGV.first
   if filename.nil?
     filename = "students.csv"
-  end  
+  end
   if File.exists?(filename)
     load_students(filename)
     puts "Loaded #{@students.count} from #{filename}"
