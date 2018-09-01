@@ -19,13 +19,18 @@ def process(selection)
   case selection
   when "1"
     input_students
+    puts "Thanks for entering the names"
   when "2"
     show_students
+    puts "There are all the students"
   when "3"
     save_students
+    puts "List saved"
   when "4"
     load_students
+    puts "The students from the loaded file are now here"
   when "9"
+    puts "Bye!"
     exit
   else
     puts "I don't know what you meant, try again"
@@ -91,9 +96,9 @@ end
 
 def try_load_students
   filename = ARGV.first
-  return if filename.nil?
+  if filename.nil?
     filename = "students.csv"
-  end
+  end  
   if File.exists?(filename)
     load_students(filename)
     puts "Loaded #{@students.count} from #{filename}"
